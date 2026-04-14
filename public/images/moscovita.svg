@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300">
+  <rect fill="#F5E6D3" width="400" height="300"/>
+  <ellipse cx="200" cy="160" rx="60" ry="40" fill="#6B4423"/>
+  <ellipse cx="200" cy="155" rx="50" ry="30" fill="#7D5A3C"/>
+  <ellipse cx="185" cy="145" rx="10" ry="8" fill="#C4A77D"/>
+  <text x="200" y="230" font-family="serif" font-size="20" fill="#5C4033" text-anchor="middle">Moscovita</text>
+</svg>

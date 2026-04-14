@@ -1,0 +1,126 @@
+{
+  "products": [
+    {
+      "id": "sourdough",
+      "name": "Sourdough Bread",
+      "price": 8,
+      "category": "bread",
+      "ingredients": ["flour", "water", "salt", "sourdough starter"],
+      "tags": ["vegan"],
+      "image": "/images/Sourdough bread.png"
+    },
+    {
+      "id": "white-sourdough",
+      "name": "White Sourdough Bread",
+      "price": 8,
+      "category": "bread",
+      "ingredients": ["flour", "water", "salt", "sourdough starter"],
+      "tags": ["vegan"],
+      "image": "/images/White sourdough bread.png"
+    },
+    {
+      "id": "whole-grain-sourdough",
+      "name": "Whole Grain Sourdough",
+      "price": 9,
+      "category": "bread",
+      "ingredients": ["whole wheat flour", "bread flour", "water", "salt", "sourdough starter"],
+      "tags": ["vegan"],
+      "image": "/images/Whole Grain Sourdough.png"
+    },
+    {
+      "id": "broma-cookie",
+      "name": "Broma Chocolate Chip Cookie",
+      "price": 3.5,
+      "category": "cookie",
+      "ingredients": ["flour", "butter", "brown sugar", "chocolate chips", "eggs", "vanilla"],
+      "tags": ["vegetarian"],
+      "image": "/images/broma_cookie.png"
+    },
+    {
+      "id": "chocolate-chip",
+      "name": "Chocolate Chip Cookie",
+      "price": 3,
+      "category": "cookie",
+      "ingredients": ["flour", "butter", "sugar", "chocolate chips", "eggs", "vanilla"],
+      "tags": ["vegetarian"],
+      "image": "/images/chocolate-chip.svg"
+    },
+    {
+      "id": "moscovita",
+      "name": "Moscovita",
+      "price": 3,
+      "category": "cookie",
+      "ingredients": ["flour", "hazelnut", "cocoa", "sugar", "butter", "eggs"],
+      "tags": ["vegetarian"],
+      "image": "/images/moscovita.svg"
+    },
+    {
+      "id": "mexican-wedding-cookies",
+      "name": "Mexican Wedding Cookies",
+      "price": 2.5,
+      "category": "cookie",
+      "ingredients": ["flour", "butter", "powdered sugar", "walnuts", "vanilla"],
+      "tags": ["vegetarian"],
+      "image": "/images/Mexican wedding cookies.png"
+    },
+    {
+      "id": "butter-cookie",
+      "name": "Butter Cookie",
+      "price": 2.5,
+      "category": "cookie",
+      "ingredients": ["flour", "butter", "sugar", "eggs", "vanilla"],
+      "tags": ["vegetarian"],
+      "image": "/images/butter-cookie.svg"
+    },
+    {
+      "id": "shortbread",
+      "name": "Shortbread",
+      "price": 2.5,
+      "category": "cookie",
+      "ingredients": ["flour", "butter", "sugar"],
+      "tags": ["vegetarian"],
+      "image": "/images/shortbread.svg"
+    },
+    {
+      "id": "baklava",
+      "name": "Baklava",
+      "price": 4,
+      "category": "cookie",
+      "ingredients": ["phyllo dough", "butter", "walnuts", "honey", "sugar", "cinnamon"],
+      "tags": ["vegetarian"],
+      "image": "/images/baklava.png"
+    },
+    {
+      "id": "caramel-walnut-tart",
+      "name": "Caramel Walnut Tart",
+      "price": 6,
+      "category": "tart",
+      "ingredients": ["flour", "butter", "walnuts", "caramel", "cream", "eggs"],
+      "tags": ["vegetarian"],
+      "image": "/images/caramel-walnut-tart.svg"
+    },
+    {
+      "id": "chocolate-tart",
+      "name": "Chocolate Tart",
+      "price": 6,
+      "category": "tart",
+      "ingredients": ["flour", "butter", "dark chocolate", "cream", "eggs", "sugar"],
+      "tags": ["vegetarian"],
+      "image": "/images/chocolate-tart.svg"
+    },
+    {
+      "id": "lemon-tart",
+      "name": "Lemon Tart",
+      "price": 5,
+      "category": "tart",
+      "ingredients": ["flour", "butter", "lemons", "eggs", "sugar"],
+      "tags": ["vegetarian"],
+      "image": "/images/lemon-tart.svg"
+    }
+  ],
+  "bakery": {
+    "name": "Vergés",
+    "tagline": "Fresh every Saturday at 11am",
+    "orderDeadline": "Thursday"
+  }
+}
