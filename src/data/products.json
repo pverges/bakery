@@ -7,7 +7,7 @@
       "category": "bread",
       "ingredients": ["flour", "water", "salt", "sourdough starter"],
       "tags": ["vegan"],
-      "image": "/images/Sourdough bread.png"
+      "image": "images/sourdough_bread.png"
     },
     {
       "id": "white-sourdough",
@@ -16,7 +16,7 @@
       "category": "bread",
       "ingredients": ["flour", "water", "salt", "sourdough starter"],
       "tags": ["vegan"],
-      "image": "/images/White sourdough bread.png"
+      "image": "images/white_sourdough_bread.png"
     },
     {
       "id": "whole-grain-sourdough",
@@ -25,7 +25,7 @@
       "category": "bread",
       "ingredients": ["whole wheat flour", "bread flour", "water", "salt", "sourdough starter"],
       "tags": ["vegan"],
-      "image": "/images/Whole Grain Sourdough.png"
+      "image": "images/whole_grain_sourdough.png"
     },
     {
       "id": "broma-cookie",
@@ -34,7 +34,7 @@
       "category": "cookie",
       "ingredients": ["flour", "butter", "brown sugar", "chocolate chips", "eggs", "vanilla"],
       "tags": ["vegetarian"],
-      "image": "/images/broma_cookie.png"
+      "image": "images/broma_cookie.png"
     },
     {
       "id": "chocolate-chip",
@@ -43,7 +43,7 @@
       "category": "cookie",
       "ingredients": ["flour", "butter", "sugar", "chocolate chips", "eggs", "vanilla"],
       "tags": ["vegetarian"],
-      "image": "/images/chocolate-chip.svg"
+      "image": "images/chocolate-chip.svg"
     },
     {
       "id": "moscovita",
@@ -52,7 +52,7 @@
       "category": "cookie",
       "ingredients": ["flour", "hazelnut", "cocoa", "sugar", "butter", "eggs"],
       "tags": ["vegetarian"],
-      "image": "/images/moscovita.svg"
+      "image": "images/moscovita.svg"
     },
     {
       "id": "mexican-wedding-cookies",
@@ -61,7 +61,7 @@
       "category": "cookie",
       "ingredients": ["flour", "butter", "powdered sugar", "walnuts", "vanilla"],
       "tags": ["vegetarian"],
-      "image": "/images/Mexican wedding cookies.png"
+      "image": "images/mexican_wedding_cookies.png"
     },
     {
       "id": "butter-cookie",
@@ -70,7 +70,7 @@
       "category": "cookie",
       "ingredients": ["flour", "butter", "sugar", "eggs", "vanilla"],
       "tags": ["vegetarian"],
-      "image": "/images/butter-cookie.svg"
+      "image": "images/butter-cookie.svg"
     },
     {
       "id": "shortbread",
@@ -79,7 +79,7 @@
       "category": "cookie",
       "ingredients": ["flour", "butter", "sugar"],
       "tags": ["vegetarian"],
-      "image": "/images/shortbread.svg"
+      "image": "images/shortbread.svg"
     },
     {
       "id": "baklava",
@@ -88,7 +88,7 @@
       "category": "cookie",
       "ingredients": ["phyllo dough", "butter", "walnuts", "honey", "sugar", "cinnamon"],
       "tags": ["vegetarian"],
-      "image": "/images/baklava.png"
+      "image": "images/baklava.png"
     },
     {
       "id": "caramel-walnut-tart",
@@ -97,7 +97,7 @@
       "category": "tart",
       "ingredients": ["flour", "butter", "walnuts", "caramel", "cream", "eggs"],
       "tags": ["vegetarian"],
-      "image": "/images/caramel-walnut-tart.svg"
+      "image": "images/caramel-walnut-tart.svg"
     },
     {
       "id": "chocolate-tart",
@@ -106,7 +106,7 @@
       "category": "tart",
       "ingredients": ["flour", "butter", "dark chocolate", "cream", "eggs", "sugar"],
       "tags": ["vegetarian"],
-      "image": "/images/chocolate-tart.svg"
+      "image": "images/chocolate-tart.svg"
     },
     {
       "id": "lemon-tart",
@@ -115,7 +115,7 @@
       "category": "tart",
       "ingredients": ["flour", "butter", "lemons", "eggs", "sugar"],
       "tags": ["vegetarian"],
-      "image": "/images/lemon-tart.svg"
+      "image": "images/lemon-tart.svg"
     }
   ],
   "bakery": {
