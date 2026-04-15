@@ -98,42 +98,19 @@
 
   <section class="recipe-list" id="recipes"></section>
   <script>
-    // Ingredient prices per kg (from Costco data)
+// Ingredient prices per kg (from Costco data only)
     const ingredientPrices = {
       // From Costco
       "butter": { price: 4.82, unit: "lb" },
       "unsalted butter": { price: 4.82, unit: "lb" },
       "eggs": { price: 1.84, unit: "dozen" },
       "egg": { price: 1.84, unit: "dozen" },
-      "egg yolk": { price: 2.76, unit: "dozen" }, // ~50% of whole egg
+      "egg yolk": { price: 2.76, unit: "dozen" },
       "heavy whipping cream": { price: 4.37, unit: "lb" },
       "cream": { price: 4.37, unit: "lb" },
-      "milk": { price: 3.91, unit: "gal" }, // ~$1.03/L
+      "milk": { price: 3.91, unit: "gal" },
       "lemons": { price: 1.28, unit: "lb" },
-      
-      // Common bakery prices (verify with your suppliers)
-      "all-purpose flour": { price: 1.50, unit: "kg" },
-      "bread flour": { price: 1.80, unit: "kg" },
-      "whole wheat flour": { price: 2.00, unit: "kg" },
-      "almond flour": { price: 12.00, unit: "kg" },
-      "granulated sugar": { price: 1.80, unit: "kg" },
-      "brown sugar": { price: 2.00, unit: "kg" },
-      "confectioners' sugar": { price: 2.50, unit: "kg" },
-      "vanilla extract": { price: 80.00, unit: "L" },
-      "almond extract": { price: 120.00, unit: "L" },
-      "dark chocolate chunks": { price: 15.00, unit: "kg" },
-      "dark chocolate": { price: 18.00, unit: "kg" },
-      "cocoa": { price: 12.00, unit: "kg" },
-      "walnuts": { price: 15.00, unit: "kg" },
-      "hazelnut": { price: 18.00, unit: "kg" },
-      "honey": { price: 10.00, unit: "kg" },
-      "phyllo dough": { price: 8.00, unit: "kg" },
-      "caramel": { price: 6.00, unit: "kg" },
-      "baking soda": { price: 4.00, unit: "kg" },
-      "kosher salt": { price: 3.00, unit: "kg" },
-      "salt": { price: 2.00, unit: "kg" },
-      "cinnamon": { price: 25.00, unit: "kg" },
-      "sourdough starter": { price: 0, unit: "kg" } // homemade, no cost
+      "walnuts": { price: 15.00, unit: "kg" }
     };
     
     // Display ingredient prices table
