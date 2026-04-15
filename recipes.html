@@ -98,35 +98,42 @@
 
   <section class="recipe-list" id="recipes"></section>
   <script>
-    // Ingredient prices per kg (edit these values)
+    // Ingredient prices per kg (from Costco data)
     const ingredientPrices = {
-      "butter": { price: 8.00, unit: "kg" },
-      "brown sugar": { price: 2.50, unit: "kg" },
-      "granulated sugar": { price: 1.80, unit: "kg" },
-      "confectioners' sugar": { price: 3.00, unit: "kg" },
+      // From Costco
+      "butter": { price: 4.82, unit: "lb" },
+      "unsalted butter": { price: 4.82, unit: "lb" },
+      "eggs": { price: 1.84, unit: "dozen" },
+      "egg": { price: 1.84, unit: "dozen" },
+      "egg yolk": { price: 2.76, unit: "dozen" }, // ~50% of whole egg
+      "heavy whipping cream": { price: 4.37, unit: "lb" },
+      "cream": { price: 4.37, unit: "lb" },
+      "milk": { price: 3.91, unit: "gal" }, // ~$1.03/L
+      "lemons": { price: 1.28, unit: "lb" },
+      
+      // Common bakery prices (verify with your suppliers)
       "all-purpose flour": { price: 1.50, unit: "kg" },
-      "almond flour": { price: 12.00, unit: "kg" },
-      "whole wheat flour": { price: 2.00, unit: "kg" },
       "bread flour": { price: 1.80, unit: "kg" },
-      "baking soda": { price: 4.00, unit: "kg" },
-      "kosher salt": { price: 3.00, unit: "kg" },
-      "salt": { price: 2.00, unit: "kg" },
+      "whole wheat flour": { price: 2.00, unit: "kg" },
+      "almond flour": { price: 12.00, unit: "kg" },
+      "granulated sugar": { price: 1.80, unit: "kg" },
+      "brown sugar": { price: 2.00, unit: "kg" },
+      "confectioners' sugar": { price: 2.50, unit: "kg" },
       "vanilla extract": { price: 80.00, unit: "L" },
       "almond extract": { price: 120.00, unit: "L" },
       "dark chocolate chunks": { price: 15.00, unit: "kg" },
-      "eggs": { price: 6.00, unit: "kg" },
-      "egg": { price: 6.00, unit: "kg" },
-      "egg yolk": { price: 8.00, unit: "kg" },
-      "walnuts": { price: 18.00, unit: "kg" },
-      "hazelnut": { price: 20.00, unit: "kg" },
-      "cocoa": { price: 15.00, unit: "kg" },
-      "honey": { price: 12.00, unit: "kg" },
-      "phyllo dough": { price: 8.00, unit: "kg" },
       "dark chocolate": { price: 18.00, unit: "kg" },
-      "cream": { price: 5.00, unit: "L" },
-      "caramel": { price: 8.00, unit: "kg" },
-      "lemons": { price: 4.00, unit: "kg" },
-      "cinnamon": { price: 30.00, unit: "kg" }
+      "cocoa": { price: 12.00, unit: "kg" },
+      "walnuts": { price: 15.00, unit: "kg" },
+      "hazelnut": { price: 18.00, unit: "kg" },
+      "honey": { price: 10.00, unit: "kg" },
+      "phyllo dough": { price: 8.00, unit: "kg" },
+      "caramel": { price: 6.00, unit: "kg" },
+      "baking soda": { price: 4.00, unit: "kg" },
+      "kosher salt": { price: 3.00, unit: "kg" },
+      "salt": { price: 2.00, unit: "kg" },
+      "cinnamon": { price: 25.00, unit: "kg" },
+      "sourdough starter": { price: 0, unit: "kg" } // homemade, no cost
     };
     
     // Display ingredient prices table
@@ -141,35 +148,53 @@
       pricesTable.appendChild(row);
     });
 
-    // Parse ingredient quantity from string
-    function parseQuantity(ing) {
-      const match = ing.match(/^([\d.]+)(g|kg|ml|L|oz|lb)?\s+(.+)$/);
-      if (!match) return { amount: 0, unit: 'g', name: ing };
+    // Parse ingredient quantity from string and calculate cost
+    function parseAndCost(ing) {
+      const match = ing.match(/^([\d.]+)\s*(g|kg|ml|L|oz|lb|dozen|fl oz)\s+(.+)$/);
+      if (!match) return { amount: 0, unit: 'g', name: ing, cost: 0 };
       
       let amount = parseFloat(match[1]);
-      let unit = match[2] || 'g';
-      let name = match[3];
+      let unit = match[2];
+      let name = match[3].toLowerCase().trim();
       
-      // Convert to grams/ml
-      if (unit === 'kg') amount *= 1000;
-      if (unit === 'L') amount *= 1000;
-      if (unit === 'oz') amount *= 28.35;
-      if (unit === 'lb') amount *= 453.6;
-      
-      return { amount, unit, name };
-    }
-    
-    // Calculate ingredient cost
-    function calculateIngredientCost(ingredient) {
-      const parsed = parseQuantity(ingredient);
-      const priceData = ingredientPrices[parsed.name.toLowerCase()];
-      if (!priceData) return 0;
-      
-      let cost = (parsed.amount / 1000) * priceData.price;
-      if (priceData.unit === 'L' && parsed.unit !== 'L') {
-        cost = (parsed.amount / 1000) * priceData.price;
+      // Find matching price
+      let priceData = null;
+      let foundName = null;
+      for (const [key, data] of Object.entries(ingredientPrices)) {
+        if (name.includes(key) || key.includes(name.split(' ')[0])) {
+          priceData = data;
+          foundName = key;
+          break;
+        }
       }
-      return cost;
+      
+      if (!priceData) return { amount, unit, name, cost: 0 };
+      
+      // Convert to price unit
+      let cost = 0;
+      const priceUnit = priceData.unit;
+      
+      // Convert input to base unit (g, ml, or item)
+      let baseAmount = amount;
+      if (unit === 'kg') baseAmount = amount * 1000;
+      else if (unit === 'lb') baseAmount = amount * 453.6;
+      else if (unit === 'oz') baseAmount = amount * 28.35;
+      else if (unit === 'L') baseAmount = amount * 1000;
+      else if (unit === 'ml') baseAmount = amount;
+      else if (unit === 'dozen') baseAmount = amount * 12; // eggs
+      else if (unit === 'fl oz') baseAmount = amount * 29.57;
+      
+      // Convert price to base unit
+      let priceInBase = priceData.price;
+      if (priceUnit === 'kg') priceInBase = priceData.price / 1000;
+      else if (priceUnit === 'lb') priceInBase = priceData.price / 453.6;
+      else if (priceUnit === 'L') priceInBase = priceData.price / 1000;
+      else if (priceUnit === 'gal') priceInBase = priceData.price / 3785; // gallon to ml
+      else if (priceUnit === 'dozen') priceInBase = priceData.price / 12;
+      
+      cost = baseAmount * priceInBase;
+      
+      return { amount, unit, name: foundName || name, cost };
     }
     
     const products = [
@@ -196,10 +221,9 @@
       let totalCost = 0;
       let ingredientCosts = [];
       product.ingredients.forEach(ing => {
-        const cost = calculateIngredientCost(ing);
-        totalCost += cost;
-        const parsed = parseQuantity(ing);
-        ingredientCosts.push({ name: parsed.name, cost });
+        const result = parseAndCost(ing);
+        totalCost += result.cost;
+        ingredientCosts.push({ name: result.name, cost: result.cost });
       });
       
       // Calculate per unit
